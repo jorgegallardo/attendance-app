@@ -19,9 +19,18 @@ export class ListComponent implements OnInit {
   readStudents() {
     this.apiService.getStudents()
       .subscribe(
-        data => this.listOfStudents = data,
-        // data => { console.log(data.allStudents) },
-        err => { console.error(err) }
+        data => {this.listOfStudents = data, console.log(data)},
+        err => console.error(err),
+        () => console.log("The GET observable has been completed.")
+      );
+  }
+
+  changeStatus(student: SimpleStudent) {
+    this.apiService.changeStat(student)
+      .subscribe(
+        data => this.readStudents(), //hack method of reloading db
+        err => console.log(err),
+        () => console.log("The PUT observable has been completed.")
       );
   }
 }

@@ -38,14 +38,15 @@ app.put('/update', (req, res, next) => {
   Student.findById(req.body._id, function(err, student) {
     if(err) return res.status(500).json({errorMessage: err});
 
-    //this can probably be made more efficient by only updating the fields which are being changed
+    //this can probably be made more efficient by only updating the fields which are being changed, possibly using PATCH instead of PUT
+    student._id = req.body._id;
     student.first = req.body.first;
     student.last = req.body.last;
     student.status = req.body.status;
 
     student.save(function(err, student) {
       if(err) return res.status(500).json({errorMessage: err});
-      res.status(200).json({updateMessage: student});
+      res.status(200).json(student);
       console.log(`${student.first} was successfully updated.`);
     });
   });

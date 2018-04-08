@@ -16,8 +16,8 @@
           <td>{{student.first}}</td>
           <td>{{student._id}}</td>
           <td>
-            <button type="button" *ngIf="student.status == 0" class="btn btn-sm btn-danger">Absent</button>
-            <button type="button" *ngIf="student.status == 1" class="btn btn-sm btn-success">Present</button>
+            <button type="button" *ngIf="student.status == 0" class="btn btn-sm btn-danger" (click)="changeStatus(student)">Absent</button>
+            <button type="button" *ngIf="student.status == 1" class="btn btn-sm btn-success" (click)="changeStatus(student)">Present</button>
           </td>
         </tr>
       </tbody>
