@@ -1,0 +1,53 @@
+<div class="row below-nav">
+  <div class="col-md-12">
+    <div style="text-align:center">
+      <br>
+      <h3>Period 4 Attendance</h3>
+      <hr>
+    </div>
+  </div>
+</div>
+  <div class="row">
+    <div class="col-sm-12">
+        <div class="row">
+            <div class="col-sm-6">
+              <h4>Absent</h4>
+              <div class="list-group">
+                <ng-container *ngFor="let student of roster">
+                  <a href="#" class="list-group-item list-group-item-danger d-flex justify-content-between align-items-center"
+                    *ngIf="student.status === 'absent'"
+                    (click)="selectStudent(student)">
+                    {{student.name}}
+                    <span class="badge badge-danger badge-pill"
+                      *ngIf="student.absentTo">{{student.absentTo.length}}</span>
+                  </a>
+                </ng-container>
+              </div>
+              
+              <hr>
+              
+              <h4>Present</h4>
+              <div class="list-group">
+                <ng-container *ngFor="let student of roster">
+                  <a href="#" class="list-group-item list-group-item-success d-flex justify-content-between align-items-center"
+                    *ngIf="student.status === 'present'"
+                    (click)="selectStudent(student)">
+                    {{student.name}}
+                    <span class="badge badge-warning badge-pill"
+                      *ngIf="student.late">Late</span>
+                  </a>
+                </ng-container>
+              </div>
+              
+              <hr>
+              
+              <pre>{{roster | json }}</pre>
+            </div>
+            <div class="col-sm-6">
+              <h4>Student Details</h4>
+              <p *ngIf="selectedStudent">The student selected is:</p>
+              <pre>{{selectedStudent | json}}</pre>
+            </div>
+          </div>
+    </div>
+  </div>

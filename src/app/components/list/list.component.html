@@ -1,0 +1,25 @@
+<div class="below-nav">
+  <h1>Roster</h1>
+  <!-- <p>{{listOfStudents | json}}</p> -->
+  <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Last</th>
+          <th scope="col">First</th>
+          <th scope="col">Object ID</th>
+          <th scope="col">Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let student of listOfStudents">
+          <td>{{student.last}}</td>
+          <td>{{student.first}}</td>
+          <td>{{student._id}}</td>
+          <td>
+            <button type="button" *ngIf="student.status == 0" class="btn btn-sm btn-danger">Absent</button>
+            <button type="button" *ngIf="student.status == 1" class="btn btn-sm btn-success">Present</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+</div>
