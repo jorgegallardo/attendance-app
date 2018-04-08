@@ -33,4 +33,8 @@ export class ListComponent implements OnInit {
         () => console.log("The PUT observable has been completed.")
       );
   }
+
+  determineRowColor(status) {
+    return status == 1 ? 'table-success' : 'table-danger'
+  }
 }
