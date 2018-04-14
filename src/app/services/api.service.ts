@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { SimpleStudent } from '../models/simplestudent.model';
-import 'rxjs/add/operator/map';
 
 const API_URL: string = 'http://localhost:3000';
 const HEADER_OPTIONS = {
