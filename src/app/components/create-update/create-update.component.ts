@@ -17,12 +17,15 @@ export class CreateUpdateComponent implements OnInit {
   }
 
   createNewStudent(form: NgForm) {
-    console.log(form.value);
+    let newStudent: any = form.value;
+
+    this.apiService.createStudent(newStudent)
+      // .subscribe(data => { console.log(data) },
+      //   err => console.error(err)
+      // );
+
     this.createForm.resetForm({
-      defaultAttendance: ""
+      defaultAttendance: ''
     });
-    // event.preventDefault();
-    // console.log(`Holy crap, it's ${this.firstNameInput}`);
-    // this.apiService.createStudent();
   }
 }
