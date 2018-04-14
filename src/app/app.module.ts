@@ -14,7 +14,8 @@ import { FormsModule } from '@angular/forms';
 const appRoutes: Routes = [
   { path: '', component: RosterComponent },
   { path: 'create-update', component: CreateUpdateComponent },
-  { path: 'simplestudents', component: ListComponent}
+  { path: 'studentlist', component: ListComponent},
+  { path: '**', component: ListComponent }
 ];
 
 @NgModule({
