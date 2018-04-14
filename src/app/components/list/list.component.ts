@@ -19,7 +19,10 @@ export class ListComponent implements OnInit {
   readStudents() {
     this.apiService.getStudents()
       .subscribe(
-        data => {this.listOfStudents = data, console.log(data)},
+        data => {
+          this.listOfStudents = data,
+          this.listOfStudents.sort(this.sortByLastName)
+        },
         err => console.error(err),
         () => console.log("The GET observable has been completed.")
       );
@@ -36,5 +39,18 @@ export class ListComponent implements OnInit {
 
   determineRowColor(status) {
     return status == 1 ? 'table-success' : 'table-danger'
+  }
+
+  sortByLastName(a, b) {
+    const lastA = a.last.toLowerCase();
+    const lastB = b.last.toLowerCase();
+  
+    let comparison = 0;
+    if (lastA > lastB) {
+      comparison = 1;
+    } else if (lastA < lastB) {
+      comparison = -1;
+    }
+    return comparison;
   }
 }

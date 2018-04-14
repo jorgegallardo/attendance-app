@@ -1,7 +1,42 @@
 <div class="row below-nav">
-  <div class="col-md-12">
-    <p>
-      create-update works!
-    </p>
+  <div class="col-sm-8 offset-sm-2">
+    <h1>Template-Driven Form</h1>
+    <form (ngSubmit)="createNewStudent(f)" #f="ngForm">
+      <div class="form-row">
+        <div class="form-group col-sm-4">
+          <input type="text" class="form-control" placeholder="First Name" ngModel name="firstName" required>
+        </div>
+        <div class="form-group col-sm-4">
+          <input type="text" class="form-control" placeholder="Last Name" ngModel name="lastName" required>
+        </div>
+        <div class="form-group col-sm-4">
+          <select class="form-control" id="exampleFormControlSelect1" ngModel name="defaultAttendance" required>
+            <option value="" selected disabled>Choose default...</option>
+            <option value="0">Absent</option>
+            <option value="1">Present</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-row">
+        <button type="submit" class="btn btn-primary btn-block" [disabled]="!f.valid">Create Student</button>
+      </div>
+    </form>
   </div>
 </div>
+
+<!-- <div class="row below-nav">
+  <div class="col-sm-8">
+    <h1>Reactive Form - Create student:</h1>
+    <form>
+      <div class="row">
+        <div class="col">
+          <input type="text" class="form-control" placeholder="First Name">
+        </div>
+        <div class="col">
+          <input type="text" class="form-control" placeholder="Last Name">
+        </div>
+        <button type="submit" class="btn btn-primary" (click)="newStudent($event)">Create</button>
+      </div>
+    </form>
+  </div>
+</div> -->

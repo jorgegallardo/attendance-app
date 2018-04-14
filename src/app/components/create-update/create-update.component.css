@@ -1,3 +1,11 @@
 .below-nav {
   margin-top: 60px;
 }
+
+input.ng-touched.ng-invalid {
+  border: 1px solid red;
+}
+
+input.ng-touched.ng-valid {
+  border: 1px solid green;
+}

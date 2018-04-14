@@ -2,19 +2,22 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { SimpleStudent } from '../models/simplestudent.model';
 
+const API_URL: string = 'http://localhost:3000';
+const HEADER_OPTIONS = {
+  headers: new HttpHeaders().set('Content-Type', 'application/json')
+};
+
 @Injectable()
 export class ApiService {
-  private apiUrl: string = 'http://localhost:3000';
-  private headers = new HttpHeaders().set('Content-Type', 'application/json');
-  private httpOptions = {
-    headers: this.headers
-  };
-
   constructor(private httpClient: HttpClient) {
   }
 
   getStudents() {
-    return this.httpClient.get(this.apiUrl + '/load', this.httpOptions);
+    return this.httpClient.get(API_URL + '/load', HEADER_OPTIONS);
+  }
+
+  createStudent() {
+    return alert('gonna make a student');
   }
 
   changeStat(student: SimpleStudent) {
@@ -25,6 +28,6 @@ export class ApiService {
       status: !student.status
     };
     // alert(JSON.stringify(studentStatusSwitch));
-    return this.httpClient.put(this.apiUrl + '/update', studentStatusSwitch, this.httpOptions);
+    return this.httpClient.put(API_URL + '/update', studentStatusSwitch, HEADER_OPTIONS);
   }
 }

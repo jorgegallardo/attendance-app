@@ -9,6 +9,7 @@ import { ApiService } from './services/api.service';
 import { CreateUpdateComponent } from './components/create-update/create-update.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { ListComponent } from './components/list/list.component';
+import { FormsModule } from '@angular/forms';
 
 const appRoutes: Routes = [
   { path: '', component: RosterComponent },
@@ -27,7 +28,8 @@ const appRoutes: Routes = [
   imports: [
     BrowserModule,
     RouterModule.forRoot(appRoutes),
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [RosterService, ApiService],
   bootstrap: [AppComponent]

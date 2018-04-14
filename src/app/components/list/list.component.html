@@ -1,9 +1,9 @@
 <div class="below-nav">
-  <h1>Roster</h1>
+  <h1>Ortiz Roster</h1>
   <!-- <p>{{listOfStudents | json}}</p> -->
   <table class="table">
     <thead>
-      <tr>
+      <tr class="">
         <th scope="col">Status</th>
         <th scope="col">Last</th>
         <th scope="col">First</th>
@@ -29,18 +29,6 @@
           <td>{{student._id}}</td>
         </tr>
       </ng-container>
-
-      <!-- <tr *ngFor="let student of listOfStudents">
-        <td *ngIf="student.status == 0">
-          <button type="button" class="btn btn-sm btn-danger set-width" (click)="changeStatus(student)">Absent</button>
-        </td>
-        <td *ngIf="student.status == 1">
-          <button type="button" class="btn btn-sm btn-success set-width" (click)="changeStatus(student)">In Class</button>
-        </td>
-        <td>{{student.last}}</td>
-        <td>{{student.first}}</td>
-        <td>{{student._id}}</td>
-      </tr> -->
     </tbody>
   </table>
 </div>
